@@ -1,0 +1,86 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  background: #eef2f6;
+  color: rgba(0, 0, 0, 0.88);
+  font-size: 14px;
+}
+
+/* ---------- 登录页 ---------- */
+.wb-login-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #e6f4ff 0%, #f0f5ff 55%, #f9f0ff 100%);
+}
+.wb-login-card { width: 100%; max-width: 380px; }
+
+/* ---------- 主框架 ---------- */
+.wb-app-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 56px;
+  padding: 0 16px;
+  background: #ffffff;
+  border-bottom: 1px solid #f0f0f0;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.wb-logo { font-size: 16px; font-weight: 600; white-space: nowrap; display: flex; align-items: center; gap: 8px; }
+.wb-logo small { font-weight: 400; color: #8c8c8c; font-size: 12px; }
+.wb-header-menu { flex: 1 1 auto; min-width: 0; border-bottom: none !important; background: transparent !important; }
+.wb-header-right { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+.wb-content { padding: 16px 20px 40px; max-width: 1440px; margin: 0 auto; }
+
+/* ---------- 通用 ---------- */
+.page-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.page-title h2 { margin: 0; font-size: 20px; font-weight: 600; }
+.page-title .sub { color: #8c8c8c; font-size: 12px; margin-top: 4px; }
+.mt-8 { margin-top: 8px; }
+.mt-12 { margin-top: 12px; }
+.mt-16 { margin-top: 16px; }
+.mb-12 { margin-bottom: 12px; }
+.nowrap { white-space: nowrap; }
+.text-muted { color: #595959; }
+
+/* ---------- 月度汇总：待排的日期行 ---------- */
+.month-pending-row > td { background: #fafafa !important; }
+
+/* ---------- 迷你月历（节假日页） ---------- */
+.mg-wrap { border: 1px solid #f0f0f0; border-radius: 8px; padding: 8px; background: #fff; }
+.mg-title { font-weight: 600; font-size: 13px; text-align: center; margin-bottom: 6px; }
+.mg-head { display: grid; grid-template-columns: repeat(7, 1fr); font-size: 12px; color: #8c8c8c; text-align: center; margin-bottom: 2px; }
+.mg-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+.mg-cell {
+  height: 26px; line-height: 24px; text-align: center; border-radius: 4px;
+  font-size: 12px; cursor: pointer; border: 1px solid transparent; user-select: none;
+  padding: 0; width: 100%; font-family: inherit;
+}
+.mg-cell:focus-visible { outline: 2px solid #1677ff; outline-offset: 1px; }
+.mg-empty { background: transparent; }
+.mg-cell:hover { border-color: #1677ff; }
+.mg-empty { cursor: default; }
+.mg-empty:hover { border-color: transparent; }
+.mg-weekday { background: #fafafa; color: #595959; }
+.mg-weekend { background: #e6f4ff; color: #0958d9; }
+.mg-holiday { background: #fff1f0; color: #cf1322; font-weight: 600; }
+.mg-workday { background: #f6ffed; color: #389e0d; font-weight: 600; }
+.mg-estimated { border-style: dashed; border-color: #d9d9d9; }
+.mg-today { outline: 2px solid #1677ff; outline-offset: -2px; }
+
+.wb-app-header { box-shadow: 0 1px 0 rgba(16, 42, 67, 0.04); }
+.wb-logo span { color: #173b72; }
+.page-title h2 { color: #102a43; }
+.ant-card { border-color: #dce4ee; }
+
+@media (max-width: 900px) {
+  .wb-content { padding: 12px 12px 32px; }
+  .wb-logo small { display: none; }
+  .page-title > .ant-space { flex-wrap: wrap; max-width: 100%; }
+}

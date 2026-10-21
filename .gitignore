@@ -1,0 +1,17 @@
+node_modules/
+.next/
+out/
+dist/
+.env*
+!.env.example
+/data/
+/backup/
+*.db
+*.db-*
+*.sqlite*
+*.log
+.DS_Store
+next-env.d.ts
+tsconfig.tsbuildinfo
+.publication-test-*/
+.excel-test-*/
