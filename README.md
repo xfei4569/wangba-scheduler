@@ -22,7 +22,7 @@
 
 机器负责算班。什么叫公平，最后还是人定规则。
 
-这是从一个真实单店需求整理出的公开源码版本。仓库不含原店的员工、班表、数据库、备份、账号或开发会话。演示人员统一叫“示例员工 A”等，不对应真人。
+适合单店三班倒排班。初次启动使用空数据库，可通过 `npm run demo` 添加虚构员工试用。
 
 ## 先跑起来
 
@@ -53,11 +53,11 @@ npm run build
 npm start
 ```
 
-Windows 安装上述 Node.js 后可以双击 `start.bat`，首次安装依赖、生成本机配置并构建。Mac 可双击 `启动排班台.command`，然后手动打开网址。此公开快照没有附带 Windows 离线运行包；新版启动器尚未在 Windows 实机验收。
+Windows 安装上述 Node.js 后可以双击 `start.bat`，首次安装依赖、生成本机配置并构建。Mac 可双击 `启动排班台.command`，然后手动打开网址。下载内容为源码，需要自行安装依赖；不含 Windows 离线运行包。Windows 启动器的实机兼容性尚未确认。
 
 ## 画面
 
-`docs/screenshots/` 仅收本公开副本使用合成人员生成的画面，不沿用真实项目旧截图。具体画面与核验范围见 [验证说明](docs/验证说明.md)。
+以下截图使用虚构的“示例员工 A”至“示例员工 G”。月度班表为草稿，实际结果取决于人员和规则。
 
 ![合成人员管理](docs/screenshots/employees-demo.png)
 
@@ -99,7 +99,7 @@ Windows 安装上述 Node.js 后可以双击 `start.bat`，首次安装依赖、
 
 ### 上锁 解锁和不搭班规则的画面
 
-以下均为独立临时实例的实际页面，使用虚构员工和临时口令，不含真实门店数据。
+以下用虚构员工演示上锁、解锁和不搭班规则。
 
 **上锁状态**：先输入独立的店长口令才能查看组合记录。截图中的“已加密”是现有界面用语，表示口令锁定；数据库文件本身没有加密。
 
@@ -130,7 +130,7 @@ Windows 安装上述 Node.js 后可以双击 `start.bat`，首次安装依赖、
 - 内置节假日有明确的年份范围；预估项会标记，使用前请自行核对。不会自动获取未来所有年份。
 - 数据保存在本机，但依赖安装需要联网。请勿把运行目录里的数据库或 `.env` 上传到 GitHub。
 
-## 开发与验证
+## 本地开发
 
 ```bash
 npm run typecheck
@@ -140,11 +140,11 @@ npm run test:integration
 npm run check:public
 ```
 
-`npm test` 包含登录配置回归、排班引擎与 Excel 回读测试。`test:integration` 在临时目录、随机凭据和独立端口启动实例，然后运行会修改数据的 API 回归；结束后清理实例与临时库。不要拿这些旧自测脚本对在用班表直接运行。
+`npm test` 运行登录配置、排班引擎与 Excel 回读测试。`test:integration` 会在独立端口和临时数据库中运行 API 测试。请勿将测试脚本连接到正在使用的班表。
 
-`check:public` 检查发布目录里的运行数据、私人路径与常见凭据模式，不等于完整安全审计。要发源码时使用干净目录，排除 `node_modules/`、`.next/`、`.env`、`data/` 和 `backup/`。本仓没有 npm 发布需求，`private: true` 仅防止误发 npm，不影响放到 GitHub。
+`check:public` 检查发布目录里的运行数据、私人路径与常见凭据模式，不等于完整安全审计。要发源码时使用干净目录，排除 `node_modules/`、`.next/`、`.env`、`data/` 和 `backup/`。
 
-技术栈：Next.js 15、React 18、TypeScript、Ant Design、better-sqlite3、xlsx-js-style。公开版改动见 [CHANGELOG](CHANGELOG.md)，依赖说明见 [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES.md)。
+技术栈：Next.js 15、React 18、TypeScript、Ant Design、better-sqlite3、xlsx-js-style。版本内容见 [CHANGELOG](CHANGELOG.md)，依赖说明见 [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES.md)。
 
 ## 许可与贡献
 
